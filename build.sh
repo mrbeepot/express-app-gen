@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Usage
+if [ "$1" = "-h" ]
+then
+    echo "USAGE:"
+    echo -e "\tbuild.sh [app-name] [ts]"
+    echo -e "\tArgs:"
+    echo -e "\tOptional: If you pass \"ts\" as the second argument, script will install TypeScript related dependencies."
+    exit 1
+fi
+
 # Check if jq is installed
 if ! command -v jq &> /dev/null
 then
