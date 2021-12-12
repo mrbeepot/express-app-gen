@@ -74,6 +74,20 @@ EOL
 # Initialize a git repo
 git init
 
+# Check if jq is installed or not
+
+if ! command -v jq &> /dev/null
+then
+    echo "jq is not installed."
+    echo "To install it, refer to: https://stedolan.github.io/jq/download/"
+    exit 1
+fi
+
+# Modify package.json to add scripts I want
+jq '.scripts = {"devStart": "nodemon dist/index.js", "devWatch": "tsc -w"}' package.json > p.json
+rm package.json
+mv ./p.json package.json
+
 # Create a tsconfig.json
 if [ $isTypescript = true ]
 then
