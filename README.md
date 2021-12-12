@@ -12,6 +12,12 @@ Removing this step and setting up the `tsconfig.json` with this flavour is somet
 
 ### Usage
 
+#### Quickly downloading the script without cloning
+
+```
+curl https://raw.githubusercontent.com/mrbeepot/express-app-gen/master/build.sh > build.sh
+```
+
 #### Generating a plain JS project
 ```
 ./build.sh my-app
