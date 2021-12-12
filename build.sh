@@ -84,7 +84,14 @@ then
 fi
 
 # Modify package.json to add scripts I want
-jq '.scripts = {"devStart": "nodemon dist/index.js", "devWatch": "tsc -w"}' package.json > p.json
+if [ $isTypescript = true ]
+then
+
+    jq '.scripts = {"devStart": "nodemon dist/index.js", "devWatch": "tsc -w"}' package.json > p.json
+else
+    jq '.scripts = {"devStart": "nodemon index.js"}' package.json > p.json
+fi
+
 rm package.json
 mv ./p.json package.json
 
