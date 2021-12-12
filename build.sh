@@ -10,14 +10,6 @@ then
     exit 1
 fi
 
-# Check if jq is installed
-if ! command -v jq &> /dev/null
-then
-    echo "jq is not installed."
-    echo "To install it, refer to: https://stedolan.github.io/jq/download/"
-    exit 1
-fi
-
 # Read the app name
 appName=$1
 
